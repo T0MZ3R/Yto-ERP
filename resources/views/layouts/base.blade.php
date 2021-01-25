@@ -7,7 +7,7 @@
         {{-- If $title is set then format the title like " title | appname " else juste print the app name --}}
         <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name') }}</title>
 
-        @yield('css')
+        @yield('assets')
     </head>
     <body>
         @include('layouts/partials/_header')

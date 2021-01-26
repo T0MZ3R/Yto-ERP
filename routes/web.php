@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LoginController::class, 'login'])->name('login');
+
+Route::get('/dashboard', function (){
+    return view('pages/dashboard');
+  })->name('dashboard');

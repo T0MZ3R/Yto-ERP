@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function (){
   Route::get('/', [LoginController::class, 'login'])->name('login');
+  Route::post('/', [LoginController::class, 'processing'])->name('processing');
 });
 
 

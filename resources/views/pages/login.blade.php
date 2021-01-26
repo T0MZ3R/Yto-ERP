@@ -14,9 +14,10 @@
     <div id="login-content">
         <h1>Log In</h1>
         <img id="close-login-content" src="images/close-icon.png">
-        <form>
-            <input type="email" name="email" placeholder="E-mail">
-            <input type="password" name="pass" placeholder="Password">
+        <form action="/" method="post">
+            @csrf
+            <input type="login" name="login" placeholder="Login">
+            <input type="password" name="password" placeholder="Password">
             <input type="submit" value="Log in">
             <br>
         </form>

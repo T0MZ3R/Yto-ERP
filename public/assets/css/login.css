@@ -87,3 +87,14 @@ body {
 #login-content > form > input[type=submit]:hover{
   opacity: 0.7;
 }
+
+#login-content .error{
+  color: yellow;
+  font-size: 14px;
+  margin: 0;
+}
+
+.container-error{
+  width: 78%;
+  margin-left: 11%;
+}

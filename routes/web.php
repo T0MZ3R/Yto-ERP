@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,20 @@ Route::middleware('guest')->group(function (){
 Route::middleware('auth')->group(function (){
   Route::get('/signout', [LoginController::class, 'signout'])->name('signout');
 
-  Route::get('/dashboard', function (){
-    return view('pages/dashboard');
-  })->name('dashboard');
+  Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
+  Route::get('/stock', [PageController::class, 'indexStock'])->name('indexStock');
+  Route::post('/stock', [PageController::class, 'storeStock'])->name('storeStock');
+
+  Route::get('/factures', [PageController::class, 'findexFactures'])->name('indexFactures');
+  Route::post('/factures', [PageController::class, 'storeFactures'])->name('storeFactures');
+
+  Route::get('/stats', [PageController::class, 'indexStats'])->name('indexStats');
+  Route::post('/stats', [PageController::class, 'storeStats'])->name('storeStats');
+
+  Route::get('/clients', [PageController::class, 'indexClients'])->name('indexClients');
+  Route::post('/clients', [PageController::class, 'storeClients'])->name('storeClients');
+
+  Route::get('/marques', [PageController::class, 'indexMarques'])->name('indexMarques');
+  Route::post('/marques', [PageController::class, 'storeMarques'])->name('storeMarques');
 });

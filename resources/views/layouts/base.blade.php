@@ -10,7 +10,9 @@
         @yield('assets')
     </head>
     <body>
-        @include('layouts/partials/_header')
+        @if (!Route::is('login'))
+            @include('layouts/partials/_header')
+        @endif
 
         <main role="main">
             @yield('content')

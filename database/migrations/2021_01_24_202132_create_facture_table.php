@@ -15,17 +15,28 @@ class CreateFactureTable extends Migration
     {
         Schema::create('facture', function (Blueprint $table) {
             $table->id();
-            // Type date
-            $table->string('CreatedAt');
-            // Type clé étrangère
-            $table->string('Id_client');
-            // Type clé étrangère
-            $table->string('Id_Stock');
-            // Type petit int pas negatif tu connais sisi le sang
-            $table->string('Nb');
-            // Type petit float tu connais
-            $table->string('Price');
-            $table->string('PathToFacture');
+
+            $table->timestamp('created_at');
+
+            $table->unsignedBigInteger('id_client');
+            $table->foreign('id_client')
+                ->references('id')
+                ->on('client')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+            $table->unsignedBigInteger('id_stock');
+            $table->foreign('id_stock')
+                ->references('id')
+                ->on('stock')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+            $table->integer('nb');
+
+            $table->float('price');
+
+            $table->string('path_to_facture');
         });
     }
 

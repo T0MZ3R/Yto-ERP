@@ -14,8 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LoginController::class, 'login'])->name('login');
 
-Route::get('/dashboard', function (){
+
+Route::middleware('guest')->group(function (){
+  Route::get('/', [LoginController::class, 'login'])->name('login');
+  Route::post('/', [LoginController::class, 'processing'])->name('processing');
+});
+
+
+Route::middleware('auth')->group(function (){
+  Route::get('/signout', [LoginController::class, 'signout'])->name('signout');
+
+  Route::get('/dashboard', function (){
     return view('pages/dashboard');
   })->name('dashboard');
+});

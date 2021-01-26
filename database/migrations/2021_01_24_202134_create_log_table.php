@@ -15,9 +15,22 @@ class CreateLogTable extends Migration
     {
         Schema::create('log', function (Blueprint $table) {
             $table->id();
-            // Type clé étrangère
-            $table->string('Id_Action');
-            $table->timestamps();
+
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')
+                ->references('id')
+                ->on('users')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+            $table->unsignedBigInteger('id_action');
+            $table->foreign('id_action')
+                ->references('id')
+                ->on('action')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+            $table->timestamp('created_at');
         });
     }
 

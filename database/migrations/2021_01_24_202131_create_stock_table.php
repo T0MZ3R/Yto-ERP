@@ -15,11 +15,14 @@ class CreateStockTable extends Migration
     {
         Schema::create('stock', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            // Type petit int pas negatif
-            $table->string('Nb');
-            // Type clé étrangère
-            $table->string('Id_Marque');
+            $table->string('name');
+            $table->unsignedBigInteger('id_marque');
+            $table->foreign('id_marque')
+                ->references('id')
+                ->on('marque')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->string('nb');
             $table->timestamps();
         });
     }

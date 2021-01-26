@@ -27,7 +27,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'login' => 'nn',
+            'failed' => 'Cette pair identifiant/mot de passe ne correspond à aucune entré dans la base de donnée.',
         ]);
     }
 

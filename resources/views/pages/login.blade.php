@@ -16,9 +16,27 @@
         <img id="close-login-content" src="images/close-icon.png">
         <form action="/" method="post">
             @csrf
-            <input type="login" name="login" placeholder="Login">
+            <input type="login" name="login" placeholder="Login" value="{{ old('login') }}">
+            @if($errors->has('login'))
+                <script>fadeBtn();</script>
+                <div class="container-error">
+                    <p class="error">{{{ $errors->first('login') }}}</p>
+                </div>
+            @endif
             <input type="password" name="password" placeholder="Password">
+            @if($errors->has('password'))
+                <script>fadeBtn();</script>
+                <div class="container-error">
+                    <p class="error">{{{ $errors->first('password') }}}</p>
+                </div>
+            @endif
             <input type="submit" value="Log in">
+            @if($errors->has('failed'))
+                <script>fadeBtn();</script>
+                <div class="container-error">
+                    <p class="error">{{{ $errors->first('failed') }}}</p>
+                </div>
+            @endif
             <br>
         </form>
     </div>

@@ -10,7 +10,7 @@
 
 @section('content')
   <div class="container">
-    <a href="{{ route('createMarque') }}"><button type="button" class="btn btn-success">+ Créer un nouvel element dans les marques +</button></a>
+    <a href="{{ route('createClient') }}"><button type="button" class="btn btn-success">+ Créer un nouveau client +</button></a>
     <div class="form-group pull-right">
       <input type="text" class="search form-control" placeholder="Mot clé">
     </div>
@@ -18,7 +18,10 @@
     <table class="table table-hover table-bordered results">
       <thead>
         <tr>
-          <th>Marque</th>
+          <th>Client</th>
+          <th>Adresse</th>
+          <th>Mail</th>
+          <th>Telephone</th>
           <th>Action</th>
         </tr>
         <tr class="warning no-result">
@@ -26,10 +29,13 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($marque as $item)
+        @foreach ($client as $item)
           <tr>
             <td>{{ $item->name }}</td>
-            <td><a class="centered" href="{{ route('editMarque', $item->id) }}"><img src="/images/edit.png" width="20px" alt=""></a></td>
+            <td>{{ $item->address }}</td>
+            <td>{{ $item->mail }}</td>
+            <td>0{{ $item->phone }}</td>
+            <td><a class="centered" href="{{ route('editClient', $item->id) }}"><img src="/images/edit.png" width="20px" alt=""></a></td>
           </tr>
         @endforeach
       </tbody>

@@ -29,12 +29,30 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('updateMarque', $marque->id) }}" method="POST" id="editForm">
+    <form action="{{ route('updateClient', $client->id) }}" method="POST" id="editForm">
         @csrf
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Marque :</label>
+            <label for="name" class="col-sm-2 col-form-label">Client :</label>
             <div class="col-sm-10">
-              <input name="name" type="text" class="form-control" id="name" value="{{ $marque->name }}">
+              <input name="name" type="text" class="form-control" id="name" value="{{ $client->name }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label">Adresse :</label>
+            <div class="col-sm-10">
+              <input name="address" type="text" class="form-control" id="address" value="{{ $client->address }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="mail" class="col-sm-2 col-form-label">Mail :</label>
+            <div class="col-sm-10">
+              <input name="mail" type="text" class="form-control" id="mail" value="{{ $client->mail }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class="col-sm-2 col-form-label">Telephone :</label>
+            <div class="col-sm-10">
+              <input name="phone" type="text" class="form-control" id="phone" value="{{ $client->phone }}">
             </div>
         </div>
         <div class="d-flex justify-content-center">
@@ -44,7 +62,7 @@
     </form>
     
 </div>
-<form action="{{ route('deleteMarque', $marque->id) }}" method="post" id="deleteForm">
+<form action="{{ route('deleteClient', $client->id) }}" method="post" id="deleteForm">
     @csrf
     @method('DELETE')
 </form>

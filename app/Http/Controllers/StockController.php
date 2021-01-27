@@ -12,12 +12,12 @@ class StockController extends Controller
     public function indexStock(){
         $marque = Marque::all();
         $stock = Stock::all();
-        return view('pages/stock', compact('stock','marque'));
+        return view('pages/stock/index', compact('stock','marque'));
     }
 
     public function createStock(){
         $marque = Marque::all();
-        return view('pages/create', compact('marque'));
+        return view('pages/stock/create', compact('marque'));
     }
 
     public function storeStock(Request $request){
@@ -33,7 +33,7 @@ class StockController extends Controller
     public function editStock($id){
         $item = Stock::find($id);
         $marque = Marque::all();
-        return view('pages/edit', compact('item','marque'));
+        return view('pages/stock/edit', compact('item','marque'));
     }
 
     public function updateStock($id, Request $request){

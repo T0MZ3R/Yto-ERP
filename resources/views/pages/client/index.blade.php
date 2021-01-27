@@ -2,15 +2,15 @@
 
 @section('assets')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">    
-    <link rel="stylesheet" href="assets/css/stock.css" media="screen">
+    <link rel="stylesheet" href="/assets/css/stock.css" media="screen">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="assets/js/stock.js"></script>
+    <script src="/assets/js/stock.js"></script>
     
 @endsection
 
 @section('content')
   <div class="container">
-    <a href="{{ route('createStock') }}"><button type="button" class="btn btn-success">+ Créer un nouvel element dans le stock +</button></a>
+    <a href="{{ route('createMarque') }}"><button type="button" class="btn btn-success">+ Créer un nouvel element dans les marques +</button></a>
     <div class="form-group pull-right">
       <input type="text" class="search form-control" placeholder="Mot clé">
     </div>
@@ -18,10 +18,7 @@
     <table class="table table-hover table-bordered results">
       <thead>
         <tr>
-          <th>Dimension</th>
           <th>Marque</th>
-          <th>Stock</th>
-          <th>Prix</th>
           <th>Action</th>
         </tr>
         <tr class="warning no-result">
@@ -29,13 +26,10 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($stock as $item)
+        @foreach ($marque as $item)
           <tr>
             <td>{{ $item->name }}</td>
-            <td>{{ $marque[$item->id_marque-1]->name }}</td>
-            <td>{{ $item->nb }}</td>
-            <td>{{ $item->price }}</td>
-            <td><a class="centered" href="{{ route('editStock', $item->id) }}"><img src="images/edit.png" width="20px" alt=""></a></td>
+            <td><a class="centered" href="{{ route('editMarque', $item->id) }}"><img src="/images/edit.png" width="20px" alt=""></a></td>
           </tr>
         @endforeach
       </tbody>

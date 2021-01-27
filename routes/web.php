@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\MarqueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,12 +40,6 @@ Route::middleware('auth')->group(function (){
   Route::post('/stock/{id}', [StockController::class, 'updateStock'])->name('updateStock');
   Route::delete('/stock/{id}', [StockController::class, 'deleteStock'])->name('deleteStock');
 
-
-
-  // Route::post('/stock', [PageController::class, 'storeStock'])->name('storeStock');
-
-
-
   
   Route::get('/factures', [PageController::class, 'indexFactures'])->name('indexFactures');
   Route::post('/factures', [PageController::class, 'storeFactures'])->name('storeFactures');
@@ -52,9 +47,17 @@ Route::middleware('auth')->group(function (){
   Route::get('/stats', [PageController::class, 'indexStats'])->name('indexStats');
   Route::post('/stats', [PageController::class, 'storeStats'])->name('storeStats');
 
-  Route::get('/clients', [PageController::class, 'indexClients'])->name('indexClients');
-  Route::post('/clients', [PageController::class, 'storeClients'])->name('storeClients');
+  Route::get('/clients', [ClientController::class, 'indexClient'])->name('indexClient');
+  Route::get('/clients/create', [ClientController::class, 'createClient'])->name('createClient');
+  Route::post('/clients', [ClientController::class, 'storeClient'])->name('storeClient');
+  Route::get('/clients/{id}/edit', [ClientController::class, 'editClient'])->name('editClient');
+  Route::post('/clients/{id}', [ClientController::class, 'updateClient'])->name('updateClient');
+  Route::delete('/clients/{id}', [ClientController::class, 'deleteClient'])->name('deleteClient');
 
-  Route::get('/marques', [PageController::class, 'indexMarques'])->name('indexMarques');
-  Route::post('/marques', [PageController::class, 'storeMarques'])->name('storeMarques');
+  Route::get('/marques', [MarqueController::class, 'indexMarque'])->name('indexMarque');
+  Route::get('/marques/create', [MarqueController::class, 'createMarque'])->name('createMarque');
+  Route::post('/marques', [MarqueController::class, 'storeMarque'])->name('storeMarque');
+  Route::get('/marques/{id}/edit', [MarqueController::class, 'editMarque'])->name('editMarque');
+  Route::post('/marques/{id}', [MarqueController::class, 'updateMarque'])->name('updateMarque');
+  Route::delete('/marques/{id}', [MarqueController::class, 'deleteMarque'])->name('deleteMarque');
 });

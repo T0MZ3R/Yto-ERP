@@ -19,5 +19,17 @@ class DatabaseSeeder extends Seeder
             'login' => 'admin',
             'password' => bcrypt('admin'),
         ]);
+
+        \App\Models\Marque::create([
+            'name' => 'Falken',
+        ]);
+        \App\Models\Marque::create([
+            'name' => 'Michelin',
+        ]);
+        \App\Models\Marque::create([
+            'name' => 'Continental',
+        ]);
+
+        \App\Models\Stock::factory(40)->create();
     }
 }

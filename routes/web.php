@@ -28,9 +28,25 @@ Route::middleware('auth')->group(function (){
 
   Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 
+
+
+
   Route::get('/stock', [PageController::class, 'indexStock'])->name('indexStock');
+
+  Route::get('/stock/create', [PageController::class, 'createStock'])->name('createStock');
   Route::post('/stock', [PageController::class, 'storeStock'])->name('storeStock');
 
+  Route::get('/stock/{id}/edit', [PageController::class, 'editStock'])->name('editStock');
+  Route::post('/stock/{id}', [PageController::class, 'updateStock'])->name('updateStock');
+  Route::delete('/stock/{id}', [PageController::class, 'deleteStock'])->name('deleteStock');
+
+
+
+  // Route::post('/stock', [PageController::class, 'storeStock'])->name('storeStock');
+
+
+
+  
   Route::get('/factures', [PageController::class, 'findexFactures'])->name('indexFactures');
   Route::post('/factures', [PageController::class, 'storeFactures'])->name('storeFactures');
 

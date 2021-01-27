@@ -13,16 +13,17 @@ class CreateStockTable extends Migration
      */
     public function up()
     {
-        Schema::create('stock', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('id_marque');
             $table->foreign('id_marque')
                 ->references('id')
-                ->on('marque')
+                ->on('marques')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
             $table->string('nb');
+            $table->string('price');
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateStockTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock');
+        Schema::dropIfExists('stocks');
     }
 }

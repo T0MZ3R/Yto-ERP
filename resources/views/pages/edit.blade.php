@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-success" form="editForm">Success</button>
+            <button type="submit" class="btn btn-success" form="editForm">Editer</button>
             <button type="submit" class="btn btn-danger" form="deleteForm">Supprimer</button>
         </div>
     </form>

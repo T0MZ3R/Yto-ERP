@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,14 +32,12 @@ Route::middleware('auth')->group(function (){
 
 
 
-  Route::get('/stock', [PageController::class, 'indexStock'])->name('indexStock');
-
-  Route::get('/stock/create', [PageController::class, 'createStock'])->name('createStock');
-  Route::post('/stock', [PageController::class, 'storeStock'])->name('storeStock');
-
-  Route::get('/stock/{id}/edit', [PageController::class, 'editStock'])->name('editStock');
-  Route::post('/stock/{id}', [PageController::class, 'updateStock'])->name('updateStock');
-  Route::delete('/stock/{id}', [PageController::class, 'deleteStock'])->name('deleteStock');
+  Route::get('/stock', [StockController::class, 'indexStock'])->name('indexStock');
+  Route::get('/stock/create', [StockController::class, 'createStock'])->name('createStock');
+  Route::post('/stock', [StockController::class, 'storeStock'])->name('storeStock');
+  Route::get('/stock/{id}/edit', [StockController::class, 'editStock'])->name('editStock');
+  Route::post('/stock/{id}', [StockController::class, 'updateStock'])->name('updateStock');
+  Route::delete('/stock/{id}', [StockController::class, 'deleteStock'])->name('deleteStock');
 
 
 
@@ -47,7 +46,7 @@ Route::middleware('auth')->group(function (){
 
 
   
-  Route::get('/factures', [PageController::class, 'findexFactures'])->name('indexFactures');
+  Route::get('/factures', [PageController::class, 'indexFactures'])->name('indexFactures');
   Route::post('/factures', [PageController::class, 'storeFactures'])->name('storeFactures');
 
   Route::get('/stats', [PageController::class, 'indexStats'])->name('indexStats');

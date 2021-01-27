@@ -10,7 +10,7 @@
 
 @section('content')
   <div class="container">
-    <button type="button" class="btn btn-success"><a href="{{ route('createStock') }}">+ Créer un nouvel element dans le stock +</a></button>
+    <a href="{{ route('createStock') }}"><button type="button" class="btn btn-success">+ Créer un nouvel element dans le stock +</button></a>
     <div class="form-group pull-right">
       <input type="text" class="search form-control" placeholder="Mot clé">
     </div>

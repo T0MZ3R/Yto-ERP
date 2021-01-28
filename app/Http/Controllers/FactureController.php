@@ -43,6 +43,11 @@ class FactureController extends Controller
             'nb' => $request->input('nb'),
             'price' => $request->input('price'),
         ]);
+
+        $item = Stock::find(session('stockToFacture'));
+        $item->nb -= $request->input('nb');
+        $item->save();
+
         Session::forget('clientToFacture');
         Session::forget('stockToFacture');
         return redirect()->route('indexFacture');

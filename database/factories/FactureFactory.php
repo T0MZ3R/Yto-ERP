@@ -23,6 +23,7 @@ class FactureFactory extends Factory
     {
         return [
             //
+            'created_at' => $this->faker->date,
             'id_client' => rand(1,75),
             'id_stock' => rand(1,75),
             'nb' => rand(1,4),

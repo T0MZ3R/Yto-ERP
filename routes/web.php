@@ -48,9 +48,6 @@ Route::middleware('auth')->group(function (){
   Route::post('/factures/storeStockInSession', [FactureController::class, 'storeStockInSession'])->name('storeStockInSession');
   Route::post('/factures/storeClientInSession', [FactureController::class, 'storeClientInSession'])->name('storeClientInSession');
 
-  Route::get('/stats', [PageController::class, 'indexStats'])->name('indexStats');
-  Route::post('/stats', [PageController::class, 'storeStats'])->name('storeStats');
-
   Route::get('/clients', [ClientController::class, 'indexClient'])->name('indexClient');
   Route::get('/clients/create', [ClientController::class, 'createClient'])->name('createClient');
   Route::post('/clients', [ClientController::class, 'storeClient'])->name('storeClient');

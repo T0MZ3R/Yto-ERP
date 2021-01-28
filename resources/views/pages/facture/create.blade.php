@@ -2,27 +2,9 @@
 
 @section('assets')
     <script src="/assets/js/add-to-facture.js"></script>    
-    
     <link rel="stylesheet" href="/assets/css/stock.css" media="screen">
+    <link rel="stylesheet" href="/assets/css/create.css" media="screen">
     <style>
-        #createForm{
-            margin: 25vh auto 0 auto;
-            width:54%;
-            padding: 40px;
-            background-color: #EEEEF3;
-            border-radius: 5px;
-            /* border: 1px solid black; */
-        }
-
-        #createForm select{
-            margin-top: 1.4%;
-        }
-
-        #createForm button{
-            margin-top: 20px;
-            width: 50%;
-        }
-
         #createForm p{
             background-color: white;
             margin: 0;

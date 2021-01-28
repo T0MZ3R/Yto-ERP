@@ -35,10 +35,22 @@
             <td>{{ $marque[$stock[$item->id_stock-1]->id_marque-1]->name }}</td>
             <td>{{ $item->nb }}</td>
             <td>{{ $item->nb*$item->price }}</td>
-            <td><a class="centered" href="{{ route('editClient', $item->id) }}"><img src="/images/print.png" width="20px" alt=""></a></td>
+            <td>
+              <a class="centered generateFacture" id="{{ $item->id }}"><img src="/images/print.png" width="20px" alt=""></a>
+            </td>
           </tr>
         @endforeach
       </tbody>
     </table>
   </div>
+  <form action="{{ route('generateFacture') }}" method="post" id="generateFacture">
+    @csrf
+    <input type="hidden" name="id" id="hiddenFactureIdForInvoice" value="{{ $item->id }}">
+  </form>
+  <script>
+    $(".generateFacture").click(function (){
+      $("#hiddenFactureIdForInvoice")[0].value = $(this)[0].id;
+      $("#generateFacture")[0].submit();
+    });
+  </script>
 @endsection

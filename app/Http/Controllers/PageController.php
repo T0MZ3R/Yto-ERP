@@ -12,11 +12,6 @@ class PageController extends Controller
 {
     //
     public function dashboard(){
-        // $facture = Facture::all();
-        // $stock = Stock::all();
-        // $client = Client::all();
-        // $marque = Marque::all();
-
         // Get 3 last facture
         $lastFacture = Facture::latest()->take(3)->get();
 

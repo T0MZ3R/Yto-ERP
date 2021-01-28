@@ -1,0 +1,17 @@
+#editForm{
+    margin: 25vh auto 0 auto;
+    width:66%;
+    padding: 40px;
+    background-color: #EEEEF3;
+    border-radius: 5px;
+    /* border: 1px solid black; */
+}
+
+#editForm select{
+    margin-top: 1.4%;
+}
+
+#editForm button{
+    margin-top: 20px;
+    width: 50%;
+}

@@ -16,6 +16,11 @@
     <div class="mainContainer" id="stat">
         <div class="topBorder"></div>
         <div class="bottomBorder"></div>
+        <div class="stat">
+            <!-- TODO : Link that with the db -->
+            <p>La marques de pneu la plus vendu est : Falken</p>
+            <p>La dimensions la plus vendu est : 195 65 15 en 90 H</p>
+        </div>
         <div class="widgetTitle">
             <h2>Statistique</h2>
         </div>
@@ -29,11 +34,11 @@
         </div>
         <table class="table table-hover table-bordered results">
             <tbody>
-                @for($i = 2; $i >= 0; $i--)
+                @for($i = 0; $i < 3; $i++)
                 <tr>
                     <td>{{ $lastFacture[$i]->created_at}}</td>
                     <td>{{ $lastFacture[$i]->price * $lastFacture[$i]->nb }}&euro;</td>
-                    <td><a class="centered" href="{{ route('editClient', $lastFacture[$i]->id) }}"><img src="/images/print.png" width="20px" alt=""></a></td>
+                    <td><a class="centered generateFacture" id="{{ $lastFacture[$i]->id }}"><img src="/images/print.png" width="20px" alt=""></a></td>
                 </tr>
                 @endfor
             </tbody>
@@ -59,4 +64,15 @@
         <p class="price">{{ $cam }}&euro;</p>
     </div>
 </div>
+
+<form action="{{ route('generateFacture') }}" method="post" id="generateFacture">
+    @csrf
+    <input type="hidden" name="id" id="hiddenFactureIdForInvoice">
+</form>
+<script>
+    $(".generateFacture").click(function (){
+        $("#hiddenFactureIdForInvoice")[0].value = $(this)[0].id;
+        $("#generateFacture")[0].submit();
+    });
+</script>
 @endsection

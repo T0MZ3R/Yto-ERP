@@ -2,25 +2,7 @@
 
 @section('assets')
     <link rel="stylesheet" href="/assets/css/stock.css" media="screen">
-    <style>
-        #editForm{
-            margin: 25vh auto 0 auto;
-            width:54%;
-            padding: 40px;
-            background-color: #EEEEF3;
-            border-radius: 5px;
-            /* border: 1px solid black; */
-        }
-
-        #editForm select{
-            margin-top: 1.4%;
-        }
-
-        #editForm button{
-            margin-top: 20px;
-            width: 50%;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/edit.css" media="screen">
 @endsection
 
 @section('content')

@@ -19,12 +19,12 @@
 	<div id="fromto">
 		<div id="from">
 			<p>
-				<strong>{{ env('COMPANY_name') }}</strong><br>
-				{{ env('COMPANY_Address') }}<br>
-				{{ env('COMPANY_City') }}<br><br>
-				Tél.: {{ env('COMPANY_Phone') }}<br>
-				Email: {{ env('COMPANY_Mail') }}<br>
-				Web: {{ env('COMPANY_Website') }}
+				<strong>{{ config('company.name') }}</strong><br>
+				{{ config('company.address') }}<br>
+				{{ config('company.city') }}<br><br>
+				Tél.: {{ config('company.phone') }}<br>
+				Email: {{ config('company.mail') }}<br>
+				Web: {{ config('company.website') }}
 			</p>
 		</div>
 		<div id="to">

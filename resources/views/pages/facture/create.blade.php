@@ -34,13 +34,13 @@
         <div class="form-group row">
             <label for="nb" class="col-sm-2 col-form-label">Nombre :</label>
             <div class="col-sm-10">
-              <input name="nb" type="text" class="form-control" id="nb" value="">
+              <input name="nb" type="text" class="form-control" id="nb" placeholder="{{ $stock->nb }}" value="">
             </div>
         </div>
         <div class="form-group row">
             <label for="price" class="col-sm-2 col-form-label">Prix unité :</label>
             <div class="col-sm-10">
-              <input name="price" type="text" class="form-control" id="price" value="">
+              <input name="price" type="text" class="form-control" id="price" placeholder="{{ $stock->price }}" value="">
             </div>
         </div>
         <div class="d-flex justify-content-center">

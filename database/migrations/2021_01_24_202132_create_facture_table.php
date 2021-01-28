@@ -13,7 +13,7 @@ class CreateFactureTable extends Migration
      */
     public function up()
     {
-        Schema::create('facture', function (Blueprint $table) {
+        Schema::create('factures', function (Blueprint $table) {
             $table->id();
 
             $table->timestamp('created_at');
@@ -21,22 +21,20 @@ class CreateFactureTable extends Migration
             $table->unsignedBigInteger('id_client');
             $table->foreign('id_client')
                 ->references('id')
-                ->on('client')
+                ->on('clients')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 
             $table->unsignedBigInteger('id_stock');
             $table->foreign('id_stock')
                 ->references('id')
-                ->on('stock')
+                ->on('stocks')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 
             $table->integer('nb');
 
             $table->float('price');
-
-            $table->string('path_to_facture');
         });
     }
 
@@ -47,6 +45,6 @@ class CreateFactureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facture');
+        Schema::dropIfExists('factures');
     }
 }

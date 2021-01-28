@@ -16,6 +16,12 @@ body{
     height: 180px;
 }
 
+.stat{
+    margin: 42px auto 0 auto;
+    width: 50%;
+    /* border: 1px solid black; */
+}
+
 #container #fac{
     position: absolute;
     background-color: #eeeef3;

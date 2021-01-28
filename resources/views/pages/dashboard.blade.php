@@ -16,6 +16,11 @@
     <div class="mainContainer" id="stat">
         <div class="topBorder"></div>
         <div class="bottomBorder"></div>
+        <div class="stat">
+            <!-- TODO : Link that with the db -->
+            <p>La marques de pneu la plus vendu est : Falken</p>
+            <p>La dimensions la plus vendu est : 195 65 15 en 90 H</p>
+        </div>
         <div class="widgetTitle">
             <h2>Statistique</h2>
         </div>

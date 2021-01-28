@@ -13,7 +13,7 @@ Nous avons réaliser un site de gestion de stock et facturation destiner à un g
 - Génération de facture
 - Statistique
 
-Tout à été pensé pour permettre à l'utilisateur de naviguer facilement sur notre site
+Tout a été pensé pour permettre à l'utilisateur de naviguer facilement sur notre site
 
 
 ## License

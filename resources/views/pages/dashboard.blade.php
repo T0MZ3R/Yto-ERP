@@ -2,17 +2,30 @@
 
 @section('assets')
 
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/dashboard.css">
+
+<link rel="stylesheet" href="/assets/css/dashboard.css">
+<link rel="stylesheet" href="/assets/css/border.css">
+
+
+<script src="/assets/js/border.js"></script>
     
 @endsection
 
 @section('content')
 <div id="container">
-    <div id="stat">
+    
+    <div class="mainContainer" id="stat">
+        <div class="topBorder"></div>
+        <div class="bottomBorder"></div>
         <h2>Statistique</h2>
     </div>
-    <div id="fac">
+
+    <div class="mainContainer" id="fac">
+        <div class="topBorder"></div>
+        <div class="bottomBorder"></div>
         <h2>Derniere facture</h2>
         <table class="table table-hover table-bordered results">
         <table>
@@ -27,6 +40,7 @@
             </tbody>
         </table>
     </div>
+
     <div id="ca">
         <h2>Chiffre de la journée</h2>
         <p>{{ $ca }}&euro;</p>

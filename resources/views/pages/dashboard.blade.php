@@ -29,11 +29,11 @@
         </div>
         <table class="table table-hover table-bordered results">
             <tbody>
-                @for($i = 2; $i >= 0; $i--)
+                @for($i = 0; $i < 3; $i++)
                 <tr>
                     <td>{{ $lastFacture[$i]->created_at}}</td>
                     <td>{{ $lastFacture[$i]->price * $lastFacture[$i]->nb }}&euro;</td>
-                    <td><a class="centered" href="{{ route('editClient', $lastFacture[$i]->id) }}"><img src="/images/print.png" width="20px" alt=""></a></td>
+                    <td><a class="centered generateFacture" id="{{ $lastFacture[$i]->id }}"><img src="/images/print.png" width="20px" alt=""></a></td>
                 </tr>
                 @endfor
             </tbody>
@@ -59,4 +59,15 @@
         <p class="price">{{ $cam }}&euro;</p>
     </div>
 </div>
+
+<form action="{{ route('generateFacture') }}" method="post" id="generateFacture">
+    @csrf
+    <input type="hidden" name="id" id="hiddenFactureIdForInvoice">
+</form>
+<script>
+    $(".generateFacture").click(function (){
+        $("#hiddenFactureIdForInvoice")[0].value = $(this)[0].id;
+        $("#generateFacture")[0].submit();
+    });
+</script>
 @endsection

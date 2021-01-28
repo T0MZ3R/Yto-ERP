@@ -24,14 +24,12 @@ class FactureController extends Controller
         if(null !== session('stockToFacture')){
             $stock = Stock::find(session('stockToFacture'));
         }else{
-            $stock = (object) array('name'=>'');
             return redirect()->route('indexStock');
         }
 
         if(null !== session('clientToFacture')){
             $client = Client::find(session('clientToFacture'));
         }else{
-            $client = (object) array('name'=>'');
             return redirect()->route('indexClient');
         }
 

@@ -1,30 +1,20 @@
 <header>
-<nav class="navbar navbar-expand-md bg-dark">
-        <ul class="navbar nav">
-            <li class="nav-item">
-                <a class="nav-link text-light font-weight-bold text-uppercase px-3" href="#">Menu</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link text-light font-weight-bold text-uppercase px-3" href="#">Stock</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light font-weight-bold text-uppercase px-3" href="#">Factures</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light font-weight-bold text-uppercase px-3" href="#">Stats</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light font-weight-bold text-uppercase px-3" href="#">Clients</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light font-weight-bold text-uppercase px-3" href="#">Marques</a>
-            </li>
-
-            <li class="nav-item"><a href="{{route('signout')}}">Deconnexion</a></li>
-        </ul>
-        
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">YTO</a>
             </div>
-        </form>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Stock</a></li>
+                <li><a href="#">Facture</a></li>
+                <li><a href="#">Clients</a></li>
+                <li><a href="#">Marques</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user">Deconnexion</a></li>
+
+            </ul>
+        </div>
     </nav>
 
 </header>

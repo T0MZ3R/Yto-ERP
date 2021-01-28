@@ -57,7 +57,12 @@ class FactureController extends Controller
         session(['clientToFacture' => $request->id]);
         return redirect()->route('createFacture');
     }
+
+    public function generateFacture(Request $request){
+        $facture = Facture::find($request->id);
+        $client = Client::find($facture->id_client);
+        $stock = Stock::find($facture->id_stock);
+        $marque = Marque::find($stock->id_marque);
+        return view('pages/facture/generate',compact('facture','client','stock','marque'));
+    }
 }
-
-
-// TODO : Facture controller

@@ -28,8 +28,8 @@
             <tbody>
                 @for($i = 2; $i >= 0; $i--)
                 <tr>
-                    <td>{{ $lastFacture[$i]->created_at }}</td>
-                    <td>{{ $lastFacture[$i]->price * $lastFacture[$i]->nb }}&euro;</td>
+                    <td>{{ $lastFacture[$i]->created_at}} -</td>
+                    <td> {{ $lastFacture[$i]->price * $lastFacture[$i]->nb }}&euro;</td>
                     <td><a class="centered" href="{{ route('editClient', $lastFacture[$i]->id) }}"><img src="/images/print.png" width="20px" alt=""></a></td>
                 </tr>
                 @endfor

@@ -13,7 +13,7 @@ class CreateLogTable extends Migration
      */
     public function up()
     {
-        Schema::create('log', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('id_user');
@@ -26,7 +26,7 @@ class CreateLogTable extends Migration
             $table->unsignedBigInteger('id_action');
             $table->foreign('id_action')
                 ->references('id')
-                ->on('action')
+                ->on('actions')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 
@@ -41,6 +41,6 @@ class CreateLogTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('log');
+        Schema::dropIfExists('logs');
     }
 }

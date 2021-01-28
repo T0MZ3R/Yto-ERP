@@ -35,8 +35,6 @@ class CreateFactureTable extends Migration
             $table->integer('nb');
 
             $table->float('price');
-
-            $table->string('path_to_facture');
         });
     }
 

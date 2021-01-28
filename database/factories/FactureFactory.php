@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Stock;
+use App\Models\Facture;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class StockFactory extends Factory
+class FactureFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Stock::class;
+    protected $model = Facture::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,10 @@ class StockFactory extends Factory
     {
         return [
             //
-            'name' => rand(105,205) . ' ' . rand(50,82) . ' '  . rand(15,19) . ' '  . rand(91,98)  . ' H',
-            'id_marque' => rand(1,9),
-            'nb' => rand(1,10),
-            'price' => rand(85,140),
+            'id_client' => rand(1,75),
+            'id_stock' => rand(1,75),
+            'nb' => rand(1,4),
+            'price' => rand(80,120),
         ];
     }
 }

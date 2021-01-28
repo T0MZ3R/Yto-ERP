@@ -1,22 +1,14 @@
-@extends('layouts/base', ['title' => 'Stock'])
+@extends('layouts/base', ['title' => 'Facture'])
 
 @section('assets')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">    
     <link rel="stylesheet" href="/assets/css/stock.css" media="screen">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="/assets/js/stock.js"></script>
-    <script src="/assets/js/add-to-facture.js"></script>
-    
-    <style>
-      td a{
-        margin: 0 5px 0 5px;
-      }
-    </style>
 @endsection
 
 @section('content')
   <div class="container">
-    <a href="{{ route('createClient') }}"><button type="button" class="btn btn-success">+ Créer un nouveau client +</button></a>
     <div class="form-group pull-right">
       <input type="text" class="search form-control" placeholder="Mot clé">
     </div>
@@ -24,10 +16,12 @@
     <table class="table table-hover table-bordered results">
       <thead>
         <tr>
-          <th>Client</th>
-          <th>Adresse</th>
-          <th>Mail</th>
-          <th>Telephone</th>
+          <th>Date de création</th>
+          <th>Client concerné</th>
+          <th>Taille</th>
+          <th>Marque</th>
+          <th>Nombre</th>
+          <th>Prix</th>
           <th>Action</th>
         </tr>
         <tr class="warning no-result">
@@ -35,20 +29,18 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($client as $item)
+        @foreach ($facture as $item)
           <tr>
-            <td>{{ $item->name }}</td>
-            <td>{{ $item->address }}</td>
-            <td>{{ $item->mail }}</td>
-            <td>0{{ $item->phone }}</td>
-            <td><div class="d-flex justify-content-center"><a class="add-client-to-facture" id="{{ $item->id }}"><img src="/images/add.png" width="20px" alt=""></a><a href="{{ route('editClient', $item->id) }}"><img src="/images/edit.png" width="20px" alt=""></a></div></td>
+            <td>{{ $item->created_at }}</td>
+            <td>{{ $client[$item->id_client-1]->name }}</td>
+            <td>{{ $stock[$item->id_stock-1]->name }}</td>
+            <td>{{ $marque[$stock[$item->id_stock-1]->id_marque-1]->name }}</td>
+            <td>{{ $item->nb }}</td>
+            <td>{{ $item->nb*$item->price }}</td>
+            <td><a class="centered" href="{{ route('editClient', $item->id) }}"><img src="/images/print.png" width="20px" alt=""></a></td>
           </tr>
         @endforeach
       </tbody>
     </table>
   </div>
-  <form action="{{ route('storeClientInSession') }}" method="post" id="createFacture">
-    @csrf
-    <input type="hidden" name="id" id="hiddenClientIdForFacture" value="{{ $item->id }}">
-  </form>
 @endsection

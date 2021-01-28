@@ -5,6 +5,13 @@
     <link rel="stylesheet" href="/assets/css/stock.css" media="screen">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="/assets/js/stock.js"></script>
+    <script src="/assets/js/add-to-facture.js"></script>
+    
+    <style>
+      td a{
+        margin: 0 5px 0 5px;
+      }
+    </style>
     
 @endsection
 
@@ -35,10 +42,15 @@
             <td>{{ $marque[$item->id_marque-1]->name }}</td>
             <td>{{ $item->nb }}</td>
             <td>{{ $item->price }}</td>
-            <td><a class="centered" href="{{ route('editStock', $item->id) }}"><img src="/images/edit.png" width="20px" alt=""></a></td>
+            
+            <td><div class="d-flex justify-content-center"><a class="add-stock-to-facture" id="{{ $item->id }}"><img src="/images/add.png" width="20px" alt=""></a><a href="{{ route('editStock', $item->id) }}"><img src="/images/edit.png" width="20px" alt=""></a></div></td>
           </tr>
         @endforeach
       </tbody>
     </table>
   </div>
+  <form action="{{ route('storeStockInSession') }}" method="post" id="createFacture">
+    @csrf
+    <input type="hidden" name="id" id="hiddenStockIdForFacture" value="{{ $item->id }}">
+  </form>
 @endsection

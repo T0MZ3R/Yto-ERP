@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FactureController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,9 +42,11 @@ Route::middleware('auth')->group(function (){
   Route::post('/stock/{id}', [StockController::class, 'updateStock'])->name('updateStock');
   Route::delete('/stock/{id}', [StockController::class, 'deleteStock'])->name('deleteStock');
 
-  
-  Route::get('/factures', [PageController::class, 'indexFactures'])->name('indexFactures');
-  Route::post('/factures', [PageController::class, 'storeFactures'])->name('storeFactures');
+  Route::get('/factures', [FactureController::class, 'indexFacture'])->name('indexFacture');
+  Route::get('/factures/create', [FactureController::class, 'createFacture'])->name('createFacture');
+  Route::post('/factures', [FactureController::class, 'storeFacture'])->name('storeFacture');
+  Route::post('/factures/storeStockInSession', [FactureController::class, 'storeStockInSession'])->name('storeStockInSession');
+  Route::post('/factures/storeClientInSession', [FactureController::class, 'storeClientInSession'])->name('storeClientInSession');
 
   Route::get('/stats', [PageController::class, 'indexStats'])->name('indexStats');
   Route::post('/stats', [PageController::class, 'storeStats'])->name('storeStats');

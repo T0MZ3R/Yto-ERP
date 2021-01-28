@@ -29,9 +29,29 @@ class DatabaseSeeder extends Seeder
         \App\Models\Marque::create([
             'name' => 'Continental',
         ]);
+        \App\Models\Marque::create([
+            'name' => 'Goodyear',
+        ]);
+        \App\Models\Marque::create([
+            'name' => 'Pirelli',
+        ]);
+        \App\Models\Marque::create([
+            'name' => 'Dunlop',
+        ]);
+        \App\Models\Marque::create([
+            'name' => 'Bridgestone',
+        ]);
+        \App\Models\Marque::create([
+            'name' => 'Hankook',
+        ]);
+        \App\Models\Marque::create([
+            'name' => 'Firestone',
+        ]);
 
-        \App\Models\Stock::factory(40)->create();
+        \App\Models\Stock::factory(75)->create();
 
-        \App\Models\Client::factory(35)->create();
+        \App\Models\Client::factory(75)->create();
+
+        \App\Models\Facture::factory(10)->create();
     }
 }
